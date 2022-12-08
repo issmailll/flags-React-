@@ -1,0 +1,27 @@
+.header{
+    padding: 15px 0;
+    background-color: rgb(6, 241, 131);
+}
+.header__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header__nav{
+    display: flex;
+    align-items: center;
+}
+.header__list{
+    margin: 0;
+    margin-right: 180px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+}
+.header__list-item{
+    margin-right: 30px;
+}
+.header__item-link{
+    text-decoration: none;
+}
