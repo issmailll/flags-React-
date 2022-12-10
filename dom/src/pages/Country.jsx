@@ -1,14 +1,21 @@
 import { useParams, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { Api } from "../api/Api";
-
+import "./Countries/loader.scss";
 const Country = () => {
   const [data, setData] = useState([]);
-  const { abc } = useParams();
+  const [load, setLoad] = useState(false);
+  const { title } = useParams();
   const goBack = useNavigate();
   useEffect(() => {
-    Api.getItem(abc).then((res) => setData(res.data[0]));
-  }, [abc]);
+    Api.getItem(title).then((res) => setData(res.data[0]));
+    if (data) {
+      setLoad(true);
+    }
+  }, [title]);
+  if (!load) {
+    return <div class="lds-hourglass"></div>;
+  }
   const { flag, capital, population, region, name } = data;
   console.log(data);
   return (
